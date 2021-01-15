@@ -1,0 +1,5 @@
+Spring:
+  application:
+    name: jpashop
+  profiles:
+    active: default # default, local, dev, stg, prod

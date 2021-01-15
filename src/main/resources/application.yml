@@ -1,0 +1,57 @@
+# Server
+Server:
+  port: 8080
+
+# Spring
+Spring:
+  # thymeleaf 설정
+  thymeleaf:
+    prefix: classpath:templates/
+    check-template-location: true
+    suffix: .html
+    mode: HTML5
+    cache: false # 개발 모드에서만 사용. 캐시 미사용 모드
+    oorder: 0
+
+  datasource: # JDBC 연결 정보
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://kenux-springboot2-test-service.csvkkyvtvu5o.ap-northeast-2.rds.amazonaws.com:5432/boot_jpa_ex
+#    url: jdbc:postgresql://localhost:5432/jpa_test
+    username: kenux
+    password: rotkfrn196
+
+  jpa:
+    database: postgresql # 사용하는 DB 종류
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update # DB 스키마 자동 생성. create / update
+      dialect: org.hibernate.diralect.PostgreSQLDialect
+      use_sql_comments: true
+    properties:
+      hibernate.format_sql: true
+
+#  h2:
+#    console:
+#      enabled: false
+#    path: /console
+#  devtools:
+#    restart:
+#      enabled: true
+  output: # console 에 색상 넣기
+    ansi:
+      enabled: always
+
+#  jackson:
+#    serialization:
+#      fail-on-empty-beans: false
+
+# 로그 메세지
+logging:
+#  # path: logs
+#  # logging.level.{패키지 경로}를 통해 로깅 레벨을 결정할 수 있슴
+  level:
+    org.hibernate: info
+    org.springframework.web: info
+    org.kenux: info
+#    org.hibernate.type: trace # bind 쿼리의 내용까지 출력. ? 부분이 실제 값으로 표현됨
